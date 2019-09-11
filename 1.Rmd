@@ -1,0 +1,37 @@
+---
+title: "生成網頁"
+author: "KaEDe"
+date: "9/11/2019"
+output: html_document
+params:
+  speaker: "claire"
+  speachContent: "工作經驗分享"
+  speakerImage: "https://www.ntpu.edu.tw/admin/a3/files/a3_photo/20190805162930.jpg"
+---
+
+```{r}
+library(stringr)
+params
+```
+
+
+```{r}
+indexContent <- readLines("index.html",encoding = 'UTF-8')
+indexContent
+
+sppppp <- "彭"
+connnnn <-"練習"
+imaaaaa <- "https://s2.best-wallpaper.net/wallpaper/3840x2160/1709/Forest-jungle-trees-path-green_3840x2160.jpg"
+bgggg <- "https://cloudfront.zekkei-japan.jp/free/wallpaper/wp_18_5_28_sp_01.jpg"
+
+newindexxx <- str_replace_all(indexContent,c(
+  "_Speaker_"=sppppp,
+  "_speechContent_"= connnnn,
+  "assets/img/intro.jpg"= imaaaaa,
+  "assets/img/bg.jpg"= bgggg))
+
+writeLines(newindexxx,"newwww.html",useBytes = T)
+```
+
+
+
